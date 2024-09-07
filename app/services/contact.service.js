@@ -15,7 +15,7 @@ class ContactService {
         };
 
         Objects.keys(contact).forEach(
-        (key) => contact[key] === undefined && delete contact[key]
+            (key) => contact[key] === undefined && delete contact[key]
         );
         return contact;
     }
@@ -51,13 +51,13 @@ class ContactService {
         const filter = {
             _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
         };
-        const update = this.extractConactData(payload);
+        const update = this.extractContactData(payload);
         const result = await this.Contact.findOneAndUpdate(
             filter,
-            { $set: update },
-            { returnDocument: "after" }
+            {$set: update},
+            {returnDocument: "after"}
         );
-        return result.value;
+        return result;
     }
 
     async delete(id) {

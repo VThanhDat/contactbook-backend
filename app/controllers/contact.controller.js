@@ -73,9 +73,9 @@ exports.update = async (req, res, next) => {
     } catch (error) {
         return next(
             new ApiError(500, `Error updating contact with id=${req.params.id}`)
-        );
+        )
     }
-}
+};
 
 exports.delete = async (req, res, next) => {
     try {
